@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <remote  name="llvm"
+           fetch="https://github.com/llvm-mirror/" />
+
+  <remote name="pfllvm"
+           fetch="https://github.com/PureFusionLLVM/" />
+		   
+  <remote name="pftc"
+           fetch="https://github.com/PureFusionTC/" />
+
+  <remote  name="sw"
+           fetch="git://sourceware.org/git/" />
+
+  <default revision="master"
+           remote="llvm"
+           sync-j="8"
+           sync-c="true"
+           sync-f="true" />
+
+  <project path="scripts" name="scripts" revision="master" remote="pfllvm" >
+    <copyfile src="build.sh" dest="build.sh" />
+  </project>
+  
+  <project path="prebuilts" name="prebuilts" remote="pfllvm" />
+
+  <project path="llvm" name="llvm" />
+  <project path="llvm/projects/compiler-rt" name="compiler-rt" />
+  <project path="llvm/projects/libclc" name="libclc" revision="master" />
+  <project path="llvm/projects/libcxx" name="libcxx" />
+  <project path="llvm/projects/libcxxabi" name="libcxxabi" />
+  <project path="llvm/projects/libunwind" name="libunwind" />
+  <project path="llvm/projects/openmp" name="openmp" />
+  <project path="llvm/tools/lld" name="lld" />
+  <project path="llvm/tools/clang/tools/extra" name="clang-tools-extra" />
+  <project path="llvm/tools/binutils" name="binutils-new" revision="binutils_2_31_1-patched" remote="pftc" />
+  <project path="llvm/tools/clang" name="clang" />
+  <project path="llvm/tools/polly" name="polly" />
+</manifest>
